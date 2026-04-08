@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Event Emitter Demo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<h2>Shopping App</h2>
+
+<div id="loginBox">
+    <input type="text" id="username" placeholder="Enter username">
+    <button id="loginBtn">Login</button>
+</div>
+
+<div id="shopBox" class="hidden">
+    <p id="welcome"></p>
+
+    <button class="buyBtn" data-item="Laptop">Buy Laptop</button>
+    <button class="buyBtn" data-item="Phone">Buy Phone</button>
+    <button class="buyBtn" data-item="Headphones">Buy Headphones</button>
+
+    <h3>Summary</h3>
+    <ul id="summary"></ul>
+
+    <button id="logoutBtn">Logout</button>
+</div>
+
+<script src="eventEmitterDemo.js"></script>
+
+</body>
+</html>

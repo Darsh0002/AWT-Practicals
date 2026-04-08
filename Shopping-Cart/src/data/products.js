@@ -1,0 +1,68 @@
+const products = [
+  {
+    id: 1,
+    name: "Wireless Headphones",
+    price: 1000,
+    image: "https://picsum.photos/seed/headphones/400/400",
+    description: "Premium wireless headphones with active noise cancellation and 30-hour battery life.",
+    rating: 4.5,
+  },
+  {
+    id: 2,
+    name: "Leather Backpack",
+    price: 800,
+    image: "https://picsum.photos/seed/backpack/400/400",
+    description: "Handcrafted genuine leather backpack with padded laptop compartment.",
+    rating: 4.8,
+  },
+  {
+    id: 3,
+    name: "Smart Watch",
+    price: 1230,
+    image: "https://picsum.photos/seed/smartwatch/400/400",
+    description: "Feature-rich smartwatch with health monitoring, GPS, and 5-day battery.",
+    rating: 4.3,
+  },
+  {
+    id: 4,
+    name: "Running Shoes",
+    price: 600,
+    image: "https://picsum.photos/seed/shoes/400/400",
+    description: "Lightweight running shoes with responsive cushioning and breathable mesh upper.",
+    rating: 4.6,
+  },
+  {
+    id: 5,
+    name: "Coffee Maker",
+    price: 2000,
+    image: "https://picsum.photos/seed/coffeemaker/400/400",
+    description: "12-cup programmable coffee maker with built-in grinder and thermal carafe.",
+    rating: 4.4,
+  },
+  {
+    id: 6,
+    name: "Sunglasses",
+    price: 999,
+    image: "https://picsum.photos/seed/sunglasses/400/400",
+    description: "Polarized UV400 sunglasses with lightweight titanium frame.",
+    rating: 4.2,
+  },
+  {
+    id: 7,
+    name: "Bluetooth Speaker",
+    price: 850,
+    image: "https://picsum.photos/seed/speaker/400/400",
+    description: "Portable waterproof Bluetooth speaker with 360° sound and 12-hour playtime.",
+    rating: 4.7,
+  },
+  {
+    id: 8,
+    name: "Yoga Mat",
+    price: 349,
+    image: "https://picsum.photos/seed/yogamat/400/400",
+    description: "Eco-friendly non-slip yoga mat with alignment lines and carrying strap.",
+    rating: 4.5,
+  },
+];
+
+export default products;

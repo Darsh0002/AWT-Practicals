@@ -35,10 +35,6 @@ export default function OrderConfirmation() {
           Continue Shopping
         </Link>
       </div>
-      
-      <p className="text-gray-400 text-sm mt-12 font-medium">
-        A confirmation email has been sent to your inbox.
-      </p>
     </div>
   );
 }

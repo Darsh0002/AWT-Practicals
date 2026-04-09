@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Enrollments</title>
+</head>
+<body>
+    <h1>Enrollments</h1>
+    <a href="{% url 'home' %}">Home</a>
+    <ul>
+    {% for enrollment in enrollments %}
+        <li>{{ enrollment.student }} enrolled in {{ enrollment.course }} on {{ enrollment.enrollment_date }}</li>
+    {% endfor %}
+    </ul>
+</body>
+</html>

@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block title %}Enrollments{% endblock %}
+
+{% block content %}
+<section class="page-header">
+    <div class="container">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+            <h1>Enrollments</h1>
+            <a href="{% url 'admin:students_enrollment_add' %}" class="btn btn-primary">+ New Enrollment</a>
+        </div>
+    </div>
+</section>
+
+
+<div class="container">
+    <div class="table-responsive">
+        <table>
+            <thead>
+                <tr>
+                    <th>Log ID</th>
+                    <th>Student Name</th>
+                    <th>Enrolled Course</th>
+                    <th>Enrollment Date</th>
+                    <th>Grade</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for enrollment in enrollments %}
+                <tr>
+                    <td>{{ enrollment.id|stringformat:"06d" }}</td>
+                    <td><a href="{% url 'student_detail' pk=enrollment.student.pk %}" style="color: var(--primary); font-weight: 500;">{{ enrollment.student }}</a></td>
+                    <td>{{ enrollment.course.course_name }} ({{ enrollment.course.course_code }})</td>
+                    <td>{{ enrollment.enrollment_date }}</td>
+                    <td><span style="font-weight: bold;">{{ enrollment.grade|default:"Pending" }}</span></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

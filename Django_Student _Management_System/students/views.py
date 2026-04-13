@@ -2,7 +2,13 @@ from django.shortcuts import render, get_object_or_404
 from .models import Student, Course, Enrollment
 
 def home(request):
-    return render(request, 'students/home.html')
+    counts = {
+        'student_count': Student.objects.count(),
+        'course_count': Course.objects.count(),
+        'enrollment_count': Enrollment.objects.count()
+    }
+    return render(request, 'students/home.html', counts)
+
 
 def student_list(request):
     students = Student.objects.all()

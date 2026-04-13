@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block title %}Student List{% endblock %}
+
+{% block content %}
+<section class="page-header">
+    <div class="container">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+            <h1>Student Records</h1>
+            <a href="{% url 'admin:students_student_add' %}" class="btn btn-primary">+ Add Student</a>
+        </div>
+    </div>
+</section>
+
+<div class="container">
+    <div class="table-responsive">
+        <table>
+            <thead>
+                <tr>
+                    <th>Registration ID</th>
+                    <th>Students Name</th>
+                    <th>Email Address</th>
+                    <th>Date of birth</th>
+                    <th>Management</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for student in students %}
+                <tr>
+                    <td>{{ student.id|stringformat:"05d" }}</td>
+                    <td><strong>{{ student.first_name }} {{ student.last_name }}</strong></td>
+                    <td>{{ student.email }}</td>
+                    <td>{{ student.date_of_birth }}</td>
+                    <td>
+                        <a href="{% url 'student_detail' pk=student.pk %}" class="btn btn-primary btn-sm">View Profile</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block title %}Django Project{% endblock %}
+
+{% block content %}
+<section class="page-header">
+    <div class="container">
+        <h1>Dashboard</h1>
+    </div>
+</section>
+
+<div class="container">
+    <div class="card-grid">
+        <div class="card">
+            <h3>Registered Students</h3>
+            <div class="value">{{ student_count }}</div>
+            <p style="margin-top: 1rem;"><a href="{% url 'student_list' %}" class="btn btn-primary btn-sm">View Students</a></p>
+        </div>
+        <div class="card">
+            <h3>Active Courses</h3>
+            <div class="value">{{ course_count }}</div>
+            <p style="margin-top: 1rem;"><a href="{% url 'course_list' %}" class="btn btn-primary btn-sm">View Courses</a></p>
+        </div>
+        <div class="card">
+            <h3>Total Enrollments</h3>
+            <div class="value">{{ enrollment_count }}</div>
+            <p style="margin-top: 1rem;"><a href="{% url 'enrollment_list' %}" class="btn btn-primary btn-sm">View Enrollments</a></p>
+        </div>
+    </div>
+
+
+    <div style="margin-top: 3rem; background: #fff; padding: 2rem; border: 1px solid var(--border-color);">
+        <h2 style="font-size: 1.25rem; margin-bottom: 1rem; color: var(--primary);">Quick Access</h2>
+        <div style="display: flex; gap: 1rem; margin-top: 1.5rem;">
+            <a href="{% url 'admin:index' %}" class="btn btn-primary">Open Admin Portal</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

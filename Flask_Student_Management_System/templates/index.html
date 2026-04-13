@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block title %}Flask Project{% endblock %}
+
+{% block content %}
+<div class="hero">
+    <h1>Dashboard</h1>
+</div>
+
+<div class="stats-grid">
+    <div class="card">
+        <h3>Total Students</h3>
+        <div class="value">{{ stats.students }}</div>
+        <p><a href="{{ url_for('student_list') }}">View all students &rarr;</a></p>
+    </div>
+    <div class="card">
+        <h3>Total Courses</h3>
+        <div class="value">{{ stats.courses }}</div>
+        <p><a href="{{ url_for('course_list') }}">View all courses &rarr;</a></p>
+    </div>
+    <div class="card">
+        <h3>Total Enrollments</h3>
+        <div class="value">{{ stats.enrollments }}</div>
+        <p><a href="{{ url_for('enrollment_list') }}">View enrollments &rarr;</a></p>
+    </div>
+</div>
+
+<div style="margin-top: 4rem;">
+    <h2>Quick Actions</h2>
+    <div class="stats-grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
+        <a href="{{ url_for('add_student') }}" class="card" style="text-align: center; padding: 1.5rem; text-decoration: none; color: inherit;">
+            <p>+ Add New Student</p>
+        </a>
+        <a href="{{ url_for('add_course') }}" class="card" style="text-align: center; padding: 1.5rem; text-decoration: none; color: inherit;">
+            <p>+ Add New Course</p>
+        </a>
+        <a href="{{ url_for('add_enrollment') }}" class="card" style="text-align: center; padding: 1.5rem; text-decoration: none; color: inherit;">
+            <p>+ New Enrollment</p>
+        </a>
+    </div>
+</div>
+
+{% endblock %}

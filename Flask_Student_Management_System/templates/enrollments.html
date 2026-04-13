@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block title %}Enrollments - Student Management{% endblock %}
+
+{% block content %}
+<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+    <h1>Enrollment Logs</h1>
+    <a href="{{ url_for('add_enrollment') }}" class="btn">+ New Enrollment</a>
+</div>
+
+
+<div class="table-container">
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Student Name</th>
+                <th>Course</th>
+                <th>Enrollment Date</th>
+                <th>Grade</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for enrollment in enrollments %}
+            <tr>
+                <td>{{ enrollment.id }}</td>
+                <td>
+                    <a href="{{ url_for('student_detail', id=enrollment.student.id) }}" style="text-decoration: none; color: var(--primary);">
+                        {{ enrollment.student.first_name }} {{ enrollment.student.last_name }}
+                    </a>
+                </td>
+                <td>{{ enrollment.course.course_name }} ({{ enrollment.course.course_code }})</td>
+                <td>{{ enrollment.enrollment_date.strftime('%Y-%m-%d %H:%M') }}</td>
+                <td><strong>{{ enrollment.grade or '--' }}</strong></td>
+            </tr>
+            {% endfor %}
+            {% if not enrollments %}
+            <tr>
+                <td colspan="5" style="text-align: center; padding: 2rem; color: var(--text-muted);">No enrollments found.</td>
+            </tr>
+            {% endif %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

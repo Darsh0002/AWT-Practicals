@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %}Add New Student - Student Management{% endblock %}
+
+{% block content %}
+<div class="header">
+    <a href="{{ url_for('student_list') }}" style="text-decoration: none; color: var(--primary);">&larr; Back to List</a>
+    <h1>Add New Student</h1>
+</div>
+
+<div class="card" style="max-width: 600px; margin: 2rem auto;">
+    <form method="POST">
+        <div class="form-group">
+            <label for="first_name">First Name</label>
+            <input type="text" id="first_name" name="first_name" class="form-input" required placeholder="e.g. John">
+        </div>
+        <div class="form-group">
+            <label for="last_name">Last Name</label>
+            <input type="text" id="last_name" name="last_name" class="form-input" required placeholder="e.g. Doe">
+        </div>
+        <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" class="form-input" required placeholder="e.g. john.doe@example.com">
+        </div>
+        <div class="form-group">
+            <label for="date_of_birth">Date of Birth</label>
+            <input type="date" id="date_of_birth" name="date_of_birth" class="form-input" required>
+        </div>
+        <button type="submit" class="btn btn-large">Save Student</button>
+    </form>
+</div>
+{% endblock %}

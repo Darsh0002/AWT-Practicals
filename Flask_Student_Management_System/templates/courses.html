@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %}Courses - Student Management{% endblock %}
+
+{% block content %}
+<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+    <h1>Course Catalog</h1>
+    <a href="{{ url_for('add_course') }}" class="btn">+ Add New Course</a>
+</div>
+
+
+<div class="table-container">
+    <table>
+        <thead>
+            <tr>
+                <th>Code</th>
+                <th>Course Name</th>
+                <th>Credits</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for course in courses %}
+            <tr>
+                <td><strong>{{ course.course_code }}</strong></td>
+                <td>{{ course.course_name }}</td>
+                <td>{{ course.credits }}</td>
+            </tr>
+            {% endfor %}
+
+        </tbody>
+    </table>
+</div>
+{% endblock %}

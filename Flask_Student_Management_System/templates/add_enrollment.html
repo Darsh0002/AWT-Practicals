@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block title %}New Enrollment - Student Management{% endblock %}
+
+{% block content %}
+<div class="header">
+    <a href="{{ url_for('enrollment_list') }}" style="text-decoration: none; color: var(--primary);">&larr; Back to Logs</a>
+    <h1>New Enrollment</h1>
+</div>
+
+<div class="card" style="max-width: 600px; margin: 2rem auto;">
+    <form method="POST">
+        <div class="form-group">
+            <label for="student_id">Select Student</label>
+            <select id="student_id" name="student_id" class="form-input" required>
+                <option value="">-- Choose a Student --</option>
+                {% for student in students %}
+                <option value="{{ student.id }}">{{ student.first_name }} {{ student.last_name }} ({{ student.email }})</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="course_id">Select Course</label>
+            <select id="course_id" name="course_id" class="form-input" required>
+                <option value="">-- Choose a Course --</option>
+                {% for course in courses %}
+                <option value="{{ course.id }}">{{ course.course_name }} ({{ course.course_code }})</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="grade">Grade (Optional)</label>
+            <select id="grade" name="grade" class="form-input">
+                <option value="">-- No Grade Yet --</option>
+                <option value="A">A</option>
+                <option value="B">B</option>
+                <option value="C">C</option>
+                <option value="D">D</option>
+                <option value="F">F</option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-large">Enroll Student</button>
+    </form>
+</div>
+{% endblock %}
